@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
             $stmt->bind_param("ss", $username, $password);
             if ($stmt->execute()) {
-                header("Location: index.php");
+                header("Location: login.php");
                 exit();
             } else {
                 $error = "Error occurred while registering. Please try again.";
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Register</button>
     </form>
-    <p>Already have an account? <a href="index.php">Login</a></p>
+    <p>Already have an account? <a href="login.php">Login</a></p>
   </div>
 </body>
 </html>
